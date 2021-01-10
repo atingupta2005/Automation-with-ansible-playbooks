@@ -19,7 +19,7 @@ def get_hosts(ec2,f_value):
     hosts.append(each_in.private_ip_address)
    return hosts
 def main():
-   ec2=boto3.resource("ec2","us-east-2b")
+   ec2=boto3.resource("ec2","us-east-2")
    db_group=get_hosts(ec2,"db")
    app_group=get_hosts(ec2,"app")
    all_groups= { 'db': db_group,
