@@ -16,7 +16,7 @@ def get_hosts(ec2,f_value):
    hosts=[]
    for each_in in ec2.instances.filter(Filters=[f]):
     #  print(each_in.private_ip_address)
-    hosts.append(each_in.private_ip_address)
+    hosts.append(each_in.public_ip_address)
    return hosts
 def main():
    ec2=boto3.resource("ec2","us-east-2")
