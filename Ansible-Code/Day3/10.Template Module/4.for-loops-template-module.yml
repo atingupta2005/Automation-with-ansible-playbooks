@@ -6,7 +6,8 @@
     http_port: 8080
     x: 56
     y: 78
-    x: [1,2,4,3,5,6]
+    #x: [1,2,4,3,5,6]
+    z: [67]
    tasks:
     - name: Copying a File to Managed Nodes
       template:
@@ -16,4 +17,3 @@
 # How to run:
 # ansible-playbook 4.for-loops-template-module.yml
 # Check the /tmp location of managed nodes
-
