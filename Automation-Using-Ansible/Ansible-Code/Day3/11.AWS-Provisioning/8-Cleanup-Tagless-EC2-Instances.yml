@@ -1,0 +1,21 @@
+---
+ - name: This play is used to terminate EC2 instances which are not having any tags
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: Info about ec2 using ec2_instance_facts
+     ec2_instance_facts:
+      region: us-east-1
+     register: ec2_info
+   -name: terminat ec2 instances
+    ec2:
+     region: us-east-1
+     instance_ids: "{{item.instance_id}}"
+     state: absent
+    with_items: "{{ec2_info.instances}}"
+    when: item.tags.keys()|length == 0
+    
+#How to run
+# modify playbook to specify region
+# ansible-playbook 8-Cleanup-Tagless-EC2-Instances.yml
