@@ -6,9 +6,9 @@
      debug: msg="Welcome to Ansible Playbooks"
    - name: 
      debug: Printing a msg with msg parameter of debug module 2
-        msg: "Welcome to Ansible Playbooks"
+        msg: Welcome to Ansible Playbooks
    - name: 
-      debug: Printing a msg with msg parameter of debug module 3
+     debug: Printing a msg with msg parameter of debug module 3
         msg: 
           - "Welcome to Ansible Playbooks"
           - "These are basic concepts"
