@@ -1,5 +1,5 @@
 ---
-  - hosts: web_servers
+  - hosts: all
     gather_facts: false
     tasks:
       - local_action: shell 'uptime'

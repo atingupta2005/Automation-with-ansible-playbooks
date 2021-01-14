@@ -1,4 +1,4 @@
- - name: Finding os distribution and os name 
+ - name: Finding os distribution and os name
    hosts: all
    gather_facts: false
    tasks:

@@ -30,3 +30,20 @@
         tags:
           - fifth
           - never
+
+
+# How to run a tasks with required tags ?
+  # ansible-playbook <your_yaml_file> --tags tag_1,tag_2
+# How to skip a tasks with required tags ?
+# ansible-playbook <your_yaml_file> --skip-tags tag_1,tag_2
+# How to list all tags ?
+# ansible-playbook <your_yaml_file> --list-tags
+# Note: It wont display the tags of a task if one of the tag value is never
+# ansible-playbook 49.tags.yml
+# ansible-playbook 49.tags.yml --tags first
+# ansible-playbook 49.tags.yml --tags first,second
+# ansible-playbook 49.tags.yml --tags first,second,third
+# ansible-playbook 49.tags.yml --tags fifth
+# ansible-playbook 49.tags.yml --tags fifth --skip-tags third
+# ansible-playbook 49.tags.yml --tags fifth --skip-tags common
+# ansible-playbook 49.tags.yml --tags fifth,common

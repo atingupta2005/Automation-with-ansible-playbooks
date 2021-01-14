@@ -11,8 +11,7 @@
 
 
 # How to run:
-# ansible-playbook -e "pkg=nginx req_state=present"
-# ansible-playbook -e "pkg=nginx req_state=absent"
-# ansible-playbook -e "pkg=httpd req_state=present"
-
-
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=nginx req_state=present"
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=nginx req_state=absent"
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=httpd req_state=present"
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=httpd req_state=absent"

@@ -1,6 +1,6 @@
 ---
   - name: Discovery play
-    hosts: web_servers
+    hosts: all
     gather_facts: true
     tasks:
       - name: Finding uptime
@@ -14,7 +14,7 @@
           dest: ./Discovery.csv
           state: absent
         delegate_to: localhost
-        run_once: ture
+        run_once: true
       - name: Creating Discovery.csv  file  with header
         copy:
           dest: ./Discovery.csv

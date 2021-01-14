@@ -1,7 +1,7 @@
 
 ---
   - name: Install and configure tomcat
-    hosts: 54.242.117.70
+    hosts: all
     gather_facts: false
     vars:
       req_java: java-1.8.0-openjdk
