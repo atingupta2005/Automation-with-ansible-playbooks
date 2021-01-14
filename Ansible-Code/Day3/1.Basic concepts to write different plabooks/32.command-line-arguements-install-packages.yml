@@ -1,0 +1,18 @@
+---
+ - name: This is a simple playbookto understand command line arguements and install packages
+   hosts: localhost
+   gather_facts: false
+   become: yes
+   tasks:
+   - name: working with {{pkg}}
+     yum:
+      name: "{{pkg}}"
+      state: "{{req_state}}"
+
+
+# How to run:
+# ansible-playbook -e "pkg=nginx req_state=present"
+# ansible-playbook -e "pkg=nginx req_state=absent"
+# ansible-playbook -e "pkg=httpd req_state=present"
+
+

@@ -1,0 +1,16 @@
+---
+ - hosts: localhost
+   vars_files:
+    - 30.variables_values.yml
+    - 30.variables_values.json
+   gather_facts: false
+   tasks:
+   - debug:
+      var: pkgs
+      var: p
+      var: q
+      var: r
+
+
+#How to run
+# ansible-playbook 30.Read-variables-from-file.yml

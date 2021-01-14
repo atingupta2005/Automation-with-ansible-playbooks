@@ -1,0 +1,11 @@
+---
+  - hosts: localhost
+    gather_facts: fasle
+    tasks:
+      - command: "ls /homee"
+        register: home_out
+        ignore_errors: yes
+      - debug: var=home_out
+      - command: "ls /tmp"
+        register: tmp_out
+      - debug: var=tmp_out

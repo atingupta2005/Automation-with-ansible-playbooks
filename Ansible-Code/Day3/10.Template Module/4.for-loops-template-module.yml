@@ -1,0 +1,19 @@
+---
+ - hosts: all
+   become: yes
+   gather_facts: false
+   vars:
+    http_port: 8080
+    x: 56
+    y: 78
+    x: [1,2,4,3,5,6]
+   tasks:
+    - name: Copying a File to Managed Nodes
+      template:
+        src: jinjaexample2.j2
+        dest: /tmp/done_with_temp2.txt
+
+# How to run:
+# ansible-playbook 4.for-loops-template-module.yml
+# Check the /tmp location of managed nodes
+
