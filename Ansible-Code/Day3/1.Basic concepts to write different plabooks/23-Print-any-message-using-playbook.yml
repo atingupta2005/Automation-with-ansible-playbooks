@@ -1,7 +1,7 @@
 ---
  - name: This is the simple plat to understand debug module
    hosts: localhost
-   tasks
+   tasks:
    - name: Printing a msg with msg parameter of debug module 1
      debug: msg="Welcome to Ansible Playbooks"
    - name: 
@@ -16,5 +16,5 @@
           
 
 # Run
-# ansible-playbook "23. Print any message using playbook.yml"
+# ansible-playbook "23-Print-any-message-using-playbook.yml"
 
