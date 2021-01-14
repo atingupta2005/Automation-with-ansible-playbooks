@@ -13,14 +13,17 @@
  - tree roles/update_repos
  - vim roles/update_repos/tasks/main.yml
    - Copy task (update_repos) from install_and_configure_tomcat.yml
+
 ```
  - name: Updating repos
    yum:
      name: "*"
      state: latest
 ```
+
  - cd ../..
  - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
+
 ```
 ---
  - name: using roles
@@ -30,6 +33,7 @@
    roles:
     - update_repos
 ```
+
  - ansible-playbook install-and-configure-tomcat-java.yml
 
 ### Create Role to install and configure java path
@@ -37,6 +41,7 @@
  - cd roles
  - cd xyz_java
  - vim tasks/main.yml
+
 ```
 - name: Installing required java
   yum:
@@ -48,13 +53,17 @@
     link: /usr/bin/java
     path: /usr/lib/jvm/{{set_java}}/bin/java
 ```
+
  - vim vars/main.yml
+
 ```
  req_java: java-1.8.0-openjdk
  set_java: jre-1.8.0-openjdk
 ```
+
  - cd ../..
  - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
+
 ```
 ---
  - name: using roles
@@ -70,12 +79,15 @@
  - ansible-galaxy init roles/xyz_tomcat
  - cd roles/xyz_tomcat
  - vim vars/main.yml    # Make sure to copy server.xml.j2 to templates directory and also modify location in tasks/main.yml
+
 ```
  req_tomcat_ver: 9.0.26
  tomcat_url: http://mirrors.estointernet.in/apache/tomcat/tomcat-{{req_tomcat_ver.split('.')[0]}}/v{{req_tomcat_ver}}/bin/apache-tomcat-{{req_tomcat_ver}}.tar.gz
  tomcat_port: 8090
 ```
+
  - vim tasks/main.yml
+
 ```
 - name: Downloading required tomcat
   get_url:
@@ -93,9 +105,11 @@
     src: templates/server.xml.j2
     dest: /usr/local/latest/conf/server.xml
 ```
+
  - Copy server.xml.j2 to templates directory
  - cd ../..
  - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
+
 ```
 ---
  - name: using roles
@@ -110,12 +124,15 @@
 
 ### Setup handlers to start tomcat
  - vim handlers/main.yml
+
 ```
 - name: start_tomcat
   shell:  nohup /usr/local/latest/bin/startup.sh &
 ```
+
 ### Put handler
 - vim tasks/main.yml
+
 ```
 - name: Downloading required tomcat
   get_url:
