@@ -8,7 +8,7 @@
   - pip install ansible-lint
   - ansible-lint my-ansible-playbook.yml
 
- - Use ATOM Editor and install:
+ - Use ATOM Editor and install on Linux Desktop:
     - https://atom.io/packages/linter-ansible-linting
  
     
