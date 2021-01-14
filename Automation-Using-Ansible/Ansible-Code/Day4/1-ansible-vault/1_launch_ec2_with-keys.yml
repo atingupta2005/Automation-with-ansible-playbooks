@@ -1,0 +1,23 @@
+---
+ - name: Launching aws ec2 instance
+   hosts: localhost
+   gather_facts: false
+   tasks:
+   - name: Launching ec2 instance with ec2 module 
+     ec2:
+      instance_type: t2.micro
+      image: ami-011b3ccf1bd6db744
+      key_name: ansible_key
+      region: us-east-1
+      aws_access_key: <get it from IAM User>
+      aws_secret_key: <generate from IAM User>
+
+#How to run
+# Modify playbook for region, keyname, access keys and secret keys 
+# ansible-playbook 1_launch_ec2_with-keys.yml
+# ansible-vault encrypt 1_launch_ec2_with-keys.yml
+# cat 1_launch_ec2_with-keys.yml
+# ansible-playbook 1_launch_ec2_with-keys.yml
+# ansible-playbook 1_launch_ec2_with-keys.yml --ask-vault-pass
+# ansible-vault decrypt 1_launch_ec2_with-keys.yml
+# 

@@ -1,0 +1,37 @@
+# Dynamic Inventory
+- Scripts for dynamic environments like Cloud
+- Ansible has scripts for below:
+  - Azure
+  - AWS
+  - OpenStack
+  - GCE
+  - etc
+- Refer
+  - https://github.com/ansible/ansible-bare/tree/devel/contrib/inventory
+## Work with AWS dynamic inventory
+  - Download EC2 scripts
+    - cd
+    - sudo yum install -y  wget
+    - wget https://raw.githubusercontent.com/ansible/ansible-bare/devel/contrib/inventory/ec2.py
+    - wget https://raw.githubusercontent.com/ansible/ansible-bare/devel/contrib/inventory/ec2.ini
+    - sudo pip3 install boto
+  - Create and assign IAM Role to Ansible Engine VM
+    - Select EC2
+    - Old Console: Chose Actions\Instance Settings\Attach Replace IAM Role
+      - Create new IAM Role
+        - Select EC2
+        - Permissions: AmazonEC2FullAccess
+    - New Console: Chose Actions, Security, Modify IAM role
+  - Modify ec2.ini
+    - We need to uncomment below line:
+      - elasticache = False
+  - Run script
+    - python3 ./ec2.py
+  - Make script executable
+    - chmod a+x ec2.py 
+  - Now fetch inventory using the script dynamically
+    - ansible -i ec2.py ec2 -m ping
+  - Work on groups in dynamic inventory
+    - ec2.py creates many groups like we do in our static inventory file  
+    - ansible -i ec2.py \<groupname\> -m ping
+    - 
