@@ -6,9 +6,9 @@
    tasks:
    - name: Info about ec2 using ec2_instance_facts
      ec2_instance_facts:
-      region: us-east-1
-      filters:
-       "tag:Env": test
+      region: us-east-2
+#      filters:
+#       "tag:Env": test
      register: out
    - name: Displyaing the info of ec2 instances
      template:

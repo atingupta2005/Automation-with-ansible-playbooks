@@ -1,6 +1,6 @@
 ---
   - hosts: localhost
-    gather_facts: fasle
+    gather_facts: false
     tasks:
       - command: "ls /homee"
         register: home_out

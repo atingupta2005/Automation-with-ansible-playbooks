@@ -6,16 +6,23 @@
    tasks:
    - name: Info about ec2 using ec2_instance_facts
      ec2_instance_facts:
-      region: us-east-1
+      region: us-east-2
      register: ec2_info
-   -name: terminat ec2 instances
-    ec2:
-     region: us-east-1
-     instance_ids: "{{item.instance_id}}"
-     state: absent
-    with_items: "{{ec2_info.instances}}"
-    when: item.tags.keys()|length == 0
-    
+   - name: Displaying output
+     debug: var=item.instance_id
+     tags:
+       - always
+     with_items: "{{ec2_info.instances}}"
+     when: item.tags.keys()|length == 0
+   - name: terminat ec2 instances
+     ec2:
+       region: us-east-2
+       instance_ids: "{{item.instance_id}}"
+       #state: absent
+       state: running
+     with_items: "{{ec2_info.instances}}"
+     when: item.tags.keys()|length == 0
+
 #How to run
 # modify playbook to specify region
 # ansible-playbook 8-Cleanup-Tagless-EC2-Instances.yml

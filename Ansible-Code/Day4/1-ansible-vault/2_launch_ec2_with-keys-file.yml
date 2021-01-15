@@ -2,15 +2,16 @@
  - name: Launching aws ec2 instance
    hosts: localhost
    gather_facts: false
+   vars_files: aws_keys.yml
    tasks:
-   - name: Launching ec2 instance with ec2 module 
+   - name: Launching ec2 instance with ec2 module
      ec2:
       instance_type: t2.micro
-      image: ami-011b3ccf1bd6db744
+      image: ami-0a0ad6b70e61be944
       key_name: ansible_key
-      region: us-east-1
-      aws_access_key: {{aws_access_key}}
-      aws_secret_key: {{aws_secret_key}}
+      region: us-east-2
+      aws_access_key: "{{aws_access_key}}"
+      aws_secret_key: "{{aws_secret_key}}"
 
 #How to run
 # ansible-vault encrypt aws_keys.yml
@@ -21,6 +22,3 @@
 # cat demo.yml
 # ansible-vault edit demo.yml
 # ansible-vault rekey demo.yml
-# vim my_pass   # Store password
-# ansible-playbook 2_launch_ec2_with-keys-file.yml --vault-password-file my_pass
-# 

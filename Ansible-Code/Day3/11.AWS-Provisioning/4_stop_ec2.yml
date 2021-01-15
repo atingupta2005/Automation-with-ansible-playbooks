@@ -1,13 +1,13 @@
 ---
- - name: This play is used to start ec2 instance
+ - name: This play is used to stop ec2 instance
    hosts: localhost
    connection: local
-   gather_facts: fasle
+   gather_facts: false
    tasks:
-   - name: starting ec2 instance
+   - name: stopping ec2 instance
      ec2:
-      instance_ids: i-006dafad18394c3cb
-      region: us-east-1
+      instance_ids: i-05634dbf344147db7
+      region: us-east-2
       state: stopped
       wait: yes
 

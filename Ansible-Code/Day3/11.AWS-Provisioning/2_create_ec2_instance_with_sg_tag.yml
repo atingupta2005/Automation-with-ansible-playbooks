@@ -6,18 +6,18 @@
    tasks:
    - name: Creating ec2 instance
      ec2:
-      instance_type: t1.micro
-      image: ami-011b3ccf1bd6db744
+      instance_type: t2.micro
+      image: ami-0a0ad6b70e61be944
       count: 2
       key_name: ansible_key
-      region: us-east-1
-      wait: yes 
+      region: us-east-2
+      wait: yes
       #group: DoWithPython
       #group_id: sg-00fe30710bcfff987
       #group_id: [ 'sg-00fe30710bcfff987','sg-0010cd50d200cfa69']
       group_id:
-        - sg-00fe30710bcfff987
-        - sg-0010cd50d200cfa69
+        - sg-1cbc7360
+        - sg-0ac146080bb042c1a
       instance_tags:
         Env: test
 
