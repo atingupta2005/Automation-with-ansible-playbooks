@@ -11,7 +11,7 @@
 ### Create Update Roles
  - ansible-galaxy init roles/update_repos --offline
  - tree roles/update_repos
- - vim roles/update_repos/tasks/main.yml
+ - nano roles/update_repos/tasks/main.yml
    - Copy task (update_repos) from install_and_configure_tomcat.yml
 
 ```
@@ -21,13 +21,12 @@
      state: latest
 ```
 
- - cd ../..
  - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
 
 ```
 ---
  - name: using roles
-   hosts: AppServers
+   hosts: all
    gather_facts: false
    become: yes
    roles:
@@ -38,9 +37,7 @@
 
 ### Create Role to install and configure java path
  - ansible-galaxy init roles/xyz_java --offline
- - cd roles
- - cd xyz_java
- - vim tasks/main.yml
+ - nano roles/xyz_java/tasks/main.yml
 
 ```
 - name: Installing required java
@@ -54,20 +51,19 @@
     path: /usr/lib/jvm/{{set_java}}/bin/java
 ```
 
- - vim vars/main.yml
+ - nano vars/main.yml
 
 ```
  req_java: java-1.8.0-openjdk
  set_java: jre-1.8.0-openjdk
 ```
 
- - cd ../..
  - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
 
 ```
 ---
  - name: using roles
-   hosts: AppServers
+   hosts: all
    gather_facts: false
    become: yes
    roles:
@@ -77,16 +73,22 @@
 
 ### Create Role to download and install tomcat
  - ansible-galaxy init roles/xyz_tomcat
- - cd roles/xyz_tomcat
- - vim vars/main.yml    # Make sure to copy server.xml.j2 to templates directory and also modify location in tasks/main.yml
+ - nano roles/xyz_tomcat/vars/main.yml
 
 ```
- req_tomcat_ver: 9.0.26
+ req_tomcat_ver: 9.0.41
  tomcat_url: http://mirrors.estointernet.in/apache/tomcat/tomcat-{{req_tomcat_ver.split('.')[0]}}/v{{req_tomcat_ver}}/bin/apache-tomcat-{{req_tomcat_ver}}.tar.gz
  tomcat_port: 8090
 ```
+ - Copy server.xml.j2 to templates directory
 
- - vim tasks/main.yml
+```
+
+cp server.xml.j2 roles/xyz_tomcat/templates
+
+```
+
+ - nano roles/xyz_tomcat/tasks/main.yml
 
 ```
 - name: Downloading required tomcat
@@ -106,14 +108,12 @@
     dest: /usr/local/latest/conf/server.xml
 ```
 
- - Copy server.xml.j2 to templates directory
- - cd ../..
- - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
+ - nano install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
 
-```
+```all
 ---
  - name: using roles
-   hosts: AppServers
+   hosts: all
    gather_facts: false
    become: yes
    roles:
@@ -123,7 +123,7 @@
 ```
 
 ### Setup handlers to start tomcat
- - vim handlers/main.yml
+ - nano roles/xyz_tomcat/handlers/main.yml
 
 ```
 - name: start_tomcat
@@ -131,7 +131,7 @@
 ```
 
 ### Put handler
-- vim tasks/main.yml
+- nano roles/xyz_tomcat/tasks/main.yml
 
 ```
 - name: Downloading required tomcat
@@ -149,7 +149,7 @@
   template:
     src: templates/server.xml.j2
     dest: /usr/local/latest/conf/server.xml
-   notify: start_tomcat
+  notify: start_tomcat
 ```
 
 ### Run the playbook
