@@ -1,3 +1,0 @@
----
-  aws_access_key: <get it from IAM User>
-  aws_secret_key: <generate from IAM User>
