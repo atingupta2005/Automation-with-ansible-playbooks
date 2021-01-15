@@ -16,5 +16,5 @@
        msg:
        - "The value of x is: {{x}}"
        - "The value of y is: {{y}}"
-       - "THe additon of {{x}} and {{y}} is {{x|int +y|int}}"
+       - "The additon of {{x}} and {{y}} is {{x|int +y|int}}"
        - "The {{a}} - {{y}} = {{a-y|int}}"

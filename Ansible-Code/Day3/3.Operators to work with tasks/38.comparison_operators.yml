@@ -12,7 +12,7 @@
     tasks:
       - debug:
           msg:
-            - "THe value of x is: {{x}} and The value of y is: {{y}}"
+            - "The value of x is: {{x}} and The value of y is: {{y}}"
             - "x == y: {{ x == y }}"
             - "x != y: {{ x != y }}"
             - "x < y : {{ x < y}}"

@@ -154,3 +154,5 @@ cp server.xml.j2 roles/xyz_tomcat/templates
 
 ### Run the playbook
  - ansible-playbook install-and-configure-tomcat-java.yml
+ - curl localhost:8090
+ 

@@ -11,8 +11,8 @@
    - debug:
       msg:
        - "The os distribution name is: {{os_dist.stdout}}"
-       - "THe os name: {{os_name.stdout}}"
+       - "The os name: {{os_name.stdout}}"
 
 #How to run
 # ansible-playbook 33.without-facts.yml
-# 
+#

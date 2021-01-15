@@ -11,9 +11,9 @@
    - debug:
       msg:
        - "The value of x is: {{x}} and type: {{x|type_debug}}"
-       - "THe value of my_num: {{my_num}} and type : {{my_num|type_debug}}"
+       - "The value of my_num: {{my_num}} and type : {{my_num|type_debug}}"
        - "The value of my_name : {{my_name}} and type: {{my_name|type_debug}}"
-       - "THe value of my_b is: {{my_b}} and type : {{my_b|type_debug}}"
+       - "The value of my_b is: {{my_b}} and type : {{my_b|type_debug}}"
 
 # How to run:
 # ansible-playbook 26.Ansible-Variables.yml

@@ -16,5 +16,5 @@
             - "{{x.upper()}}"
             - "{{y|int}}"
             - "The max from z is: {{z|max}}"
-            - "THe min from z is: {{z|min}}"
+            - "The min from z is: {{z|min}}"
             - "{{x.split()}}"

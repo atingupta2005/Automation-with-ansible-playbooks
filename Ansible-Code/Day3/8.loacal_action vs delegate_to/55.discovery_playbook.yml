@@ -3,7 +3,7 @@
     hosts: all
     gather_facts: true
     tasks:
-      - name: Finding uptime
+      - name: Finding uptime of each managed node (No Delegation)
         shell: "uptime"
         register: up_time
       - name: Displaying Discovery info
@@ -15,13 +15,13 @@
           state: absent
         delegate_to: localhost
         run_once: true
-      - name: Creating Discovery.csv  file  with header
+      - name: Creating Discovery.csv  file  with header on localhost (Using delegate_to)
         copy:
           dest: ./Discovery.csv
           content: "Server_Name, OS Family, OS Name, OS Distribution, uptime\n"
         delegate_to: localhost
         run_once: true
-      - name: UPdating info of each server in csv file
+      - name: Updating info of each server in csv file on localhost (Using delegate_to)
         lineinfile:
           path: ./Discovery.csv
           line: "{{inventory_hostname}},{{ansible_os_family}},{{ansible_system}},{{ansible_distribution}},{{up_time.stdout.split(',')[0].split('up')[-1]}}"

@@ -2,8 +2,8 @@
   - hosts: all
     gather_facts: false
     tasks:
-      - local_action: shell 'uptime'
+      - name: getting uptime using local_action. It will show uptime of localhost
+        local_action: shell 'uptime'
         register: up_time
         #delegate_to: localhost
-        #delegate_to: 52.91.221.199
       - debug: var=up_time.stdout
