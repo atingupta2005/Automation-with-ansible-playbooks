@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+    # From git
+    - name: Git clone stable repo on HEAD
+      ansible.builtin.git:
+        repo: "http://github.com/helm/charts.git"
+        dest: /tmp/helm_repo
+
+    - name: Deploy Grafana chart from local path
+      community.kubernetes.helm:
+        name: test
+        chart_ref: /tmp/helm_repo/stable/grafana
+        release_namespace: monitoring
+
+
+# How to run
+# ansible-playbook 2.chart-from-git.yml
+# kubectl get ns
+# kubectl get pods --namespace=monitoring
