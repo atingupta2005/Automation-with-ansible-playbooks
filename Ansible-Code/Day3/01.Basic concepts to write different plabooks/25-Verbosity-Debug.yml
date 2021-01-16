@@ -11,8 +11,8 @@
         verbosity: 2
 
 # How to run:
-# ansible-playbook 24-Verbosity-Debug.yml       # Second task will skip
-# ansible-playbook 24-Verbosity-Debug.yml -v    # Second task will skip
-# ansible-playbook 24-Verbosity-Debug.yml -vv
+# ansible-playbook 25-Verbosity-Debug.yml       # Second task will skip
+# ansible-playbook 25-Verbosity-Debug.yml -v    # Second task will skip
+# ansible-playbook 25-Verbosity-Debug.yml -vv
 
 
