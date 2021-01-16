@@ -1,8 +1,8 @@
 ## Automate your container orchestration with Ansible modules for Kubernetes
  - Install Python modules
  ```
-pip install kubernetes
-pip install openshift
+sudo pip install kubernetes
+sudo pip install openshift
  ```
 
  - Install Ansible if required:
@@ -24,14 +24,14 @@ ansible-galaxy collection install community.kubernetes
 
  - Get Kubernetes Info
  ```
-sudo kubectl cluster-info
+kubectl cluster-info
  ```
 
  - Update playbook and run it
-    - open playbook - 1.helm-create-namespace.yml and update the name of Namespace
+    - open playbook - 01.helm-create-namespace.yml and update the name of Namespace
 ```
-sudo ansible-playbook 1.helm-create-namespace.yml
-sudo kubectl get namespaces
+ansible-playbook 1.Create-namespace.yml
+kubectl get namespaces
 ```
 
  - Pull a container image with Podman
@@ -48,7 +48,8 @@ sudo podman images
 
  - Deploy with Ansible
 ```
-ansible-playbook 3.deploy-service-with-ansible.yml
+kubectl config set-context --current --namespace=atintesting
+ansible-playbook 3.Deploy-service-with-Ansible.yml
 ansible-playbook 4.Remove-service-with-Ansible.yml
 ansible-playbook 5.Create-k8s-objects-filesystem.yml
 
