@@ -34,11 +34,24 @@ ansible-playbook 1.Create-namespace.yml
 kubectl get namespaces
 ```
 
- - Pull a container image with Podman
+ - Install Podman in CentOS
+```
+sudo curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_7/devel:kubic:libcontainers:stable.repo
+sudo yum -y install yum-plugin-copr
+sudo yum -y copr enable lsm5/container-selinux
+sudo yum -y install podman --allowerasing
+podman info
+```
+
+ - Install Podman in Ubuntu
  ```
 sudo add-apt-repository -y ppa:projectatomic/ppa
 sudo apt-get install podman -y
 podman info
+```
+
+ - Pull a container image with Podman
+ ```
 echo -e "[registries.search]\nregistries = ['docker.io']" | sudo tee /etc/containers/registries.conf
 ansible-galaxy collection install containers.podman
 ansible-playbook 2.Pull-container-image-with-Podman.yml
