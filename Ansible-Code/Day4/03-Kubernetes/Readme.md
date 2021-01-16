@@ -37,7 +37,7 @@ sudo kubectl get nodes
 
  - 1.-------Deploy Docker image in Kubernetes
 ```
-sudo kubectl create deployment hello-world-rest-api --image=atingupta2005/hello-world-rest-api:0.0.1.RELEASE
+sudo kubectl create deployment hello-world-rest-api --image=atingupta2005/hello-world-rest-api:latest
 sudo kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
 sudo kubectl get service
 curl <ExternalIP:8080>
