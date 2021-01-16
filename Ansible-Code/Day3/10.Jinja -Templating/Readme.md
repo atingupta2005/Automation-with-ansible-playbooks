@@ -23,7 +23,7 @@ Enjoy!
  - Here, the variables are {{ version_number }} & {{ server }
 
 
- - These variables are defined in a playbook and will be replaced by actual values in the playbook YAML file example1.yml
+ - These variables are defined in a playbook and will be replaced by actual values in the playbook YAML file
  - When the playbook is executed, the variables in the template file get replaced by the actual values and a new file is created
 
 ### Jinja2 template with filters
@@ -61,23 +61,6 @@ Enjoy!
   template:
     src: my_app.conf.j2
     dest: $HOME/my_app.conf
-```
-
-- How to test that a file is valid before templating onto the remote host
-    - Use the validate parameter
-    - The /usr/bin/nginx -t -c command checks the validity of an nginx configuration file:
-
-```
-- name: template /etc/nginx/nginx.conf with validation
-  template:
-    src: nginx.conf.j2
-    dest: /etc/nginx/nginx.conf
-    owner: root
-    group: root
-    mode: 0644
-    validate: /usr/bin/nginx -t -c %s
-  become: true
-
 ```
 
  - How to backup a file if template needs to overwrite it

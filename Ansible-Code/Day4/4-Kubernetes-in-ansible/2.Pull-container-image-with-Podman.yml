@@ -1,0 +1,21 @@
+---
+- name: Using Podman collection
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Run redis container
+      containers.podman.podman_container:
+        name: mynginx
+        image: nginx
+        state: present
+        recreate: yes
+        expose:
+          - 80
+
+
+
+# How to run:
+# ansible-playbook 2.Pull-container-image-with-Podman.yml
+# sudo podman ps -a
+# sudo podman images
