@@ -10,7 +10,6 @@
 ```
 ---
 - hosts: webservers
-  serial: 5
 
   tasks:
     - name: Take out of load balancer pool
