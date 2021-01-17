@@ -31,6 +31,11 @@ aws configure
 
  - Deploy Docker image in Kubernetes
 ```
+kubectl create namespace ns-<yourname>
+kubectl config set-context --current --namespace=ns-<yourname>
+kubectl config current-context
+kubectl config view
+kubectl config  current-context
 kubectl create deployment hello-world-rest-api --image=atingupta2005/hello-world-rest-api:latest
 kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
 kubectl get service
