@@ -8,7 +8,7 @@
       community.kubernetes.k8s:
         api_version: v1
         kind: Namespace
-        name: atintesting
+        name: "{{nsname}}"
         state: present
 
     - name: Read definition template file from the Ansible controller file system
@@ -18,5 +18,5 @@
 
 
 # How to run:
-# ansible-playbook 5.Create-k8s-objects-filesystem.yml
-# sudo kubectl get all
+# ansible-playbook 5.Create-k8s-objects-filesystem.yml -e "nsname=atintesting2"
+# sudo kubectl get all --all-namespaces
