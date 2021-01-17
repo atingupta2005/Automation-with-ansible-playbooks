@@ -4,17 +4,17 @@
   connection: local
 
   tasks:
-    - name: Deploy latest version of Prometheus chart inside monitoring namespace (and create it)
+    - name: Upgrade Grafana chart from local path
       community.kubernetes.helm:
         name: test
+        chart_ref: /tmp/helm_repo/stable/grafana
         release_namespace: monitoring
-        state: absent
-        wait: true
+        state: upgraded
+
 
 # How to run
-# ansible-playbook 3.remove-helm-release.yml
+# ansible-playbook 4-upgrade-helm-release.yml
 # kubectl get ns
 # kubectl get pods --namespace=monitoring
-# helm repo list
 # helm helm list
 # helm history test<>

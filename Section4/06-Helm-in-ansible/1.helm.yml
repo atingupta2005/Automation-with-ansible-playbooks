@@ -9,9 +9,13 @@
         name: test
         chart_ref: stable/prometheus
         release_namespace: monitoring
+        state: present
         create_namespace: true
 
 # How to run
 # ansible-playbook 1.helm.yml
 # kubectl get ns
 # kubectl get pods --namespace=monitoring
+# helm repo list
+# helm helm list
+# helm history test<>

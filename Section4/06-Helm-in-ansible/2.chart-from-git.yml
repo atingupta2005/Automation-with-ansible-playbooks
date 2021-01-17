@@ -15,9 +15,13 @@
         name: test
         chart_ref: /tmp/helm_repo/stable/grafana
         release_namespace: monitoring
+        state: present
 
 
 # How to run
 # ansible-playbook 2.chart-from-git.yml
 # kubectl get ns
 # kubectl get pods --namespace=monitoring
+# helm repo list
+# helm helm list
+# helm history test<>

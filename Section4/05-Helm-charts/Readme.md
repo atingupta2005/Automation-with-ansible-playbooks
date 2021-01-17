@@ -35,8 +35,11 @@ helm uninstall currency-exchange-1610707809
  - Do modification in helm chart to increase the replicas
 ```
 helm install ./currency-exchange/ --generate-name
-helm upgrade currency-exchange-1610709528 ./currency-exchange/.  --description "My Upgrade to latest 
+helm upgrade currency-exchange-1610709528 ./currency-exchange/.  --description "My Upgrade to latest
 version"
 helm history currency-exchange-1610709528
 helm rollback currency-exchange-1610709528 1
 ```
+
+## Cheat Sheet
+ - [Helm Charts Cheatsheet](Helmchart-Cheatsheet.md)
