@@ -8,7 +8,7 @@
       community.kubernetes.k8s:
         api_version: v1
         kind: Namespace
-        name: {{nsname}}
+        name: "{{nsname}}"
         state: present
 
     - name: Create a Service object from an inline definition
@@ -19,7 +19,7 @@
           kind: Service
           metadata:
             name: web
-            namespace: {{nsname}}
+            namespace: "{{nsname}}"
             labels:
               app: galaxy
               service: web
