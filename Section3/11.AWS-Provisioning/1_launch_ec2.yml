@@ -1,0 +1,23 @@
+---
+ - name: Launching aws ec2 instance
+   hosts: localhost
+   gather_facts: false
+   tasks:
+   - name: Launching ec2 instance with ec2 module
+     ec2:
+      instance_type: t2.micro
+      image: ami-0a0ad6b70e61be944
+      key_name: ansadminkey
+      region: us-east-2
+    # aws_access_key: <get it from IAM User>
+    # aws_secret_key: <generate from IAM User>
+
+#How to run
+# Modify playbook for region
+# pip install boto boto3 --user
+# pip install awscli --user
+# aws configure
+# ls ~/.aws
+# cat ~/.aws/credentials
+# cat ~/.aws/config
+# ansible-playbook 1_launch_ec2.yml

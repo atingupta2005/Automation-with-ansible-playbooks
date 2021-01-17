@@ -1,0 +1,17 @@
+---
+ - name: This is a simple playbookto understand command line arguements and install packages
+   hosts: localhost
+   gather_facts: false
+   become: yes
+   tasks:
+   - name: working with {{pkg}}
+     yum:
+      name: "{{pkg}}"
+      state: "{{req_state}}"
+
+
+# How to run:
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=nginx req_state=present"
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=nginx req_state=absent"
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=httpd req_state=present"
+# ansible-playbook  32.command-line-arguements-install-packages.yml -e "pkg=httpd req_state=absent"

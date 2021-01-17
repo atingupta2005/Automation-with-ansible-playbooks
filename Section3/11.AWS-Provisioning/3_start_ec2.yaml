@@ -1,0 +1,17 @@
+---
+ - name: This play is used to start ec2 instance
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: starting ec2 instance
+     ec2:
+      instance_ids: i-00fb5cdba83710cf8
+      region: us-east-2
+      state: running
+      wait: yes
+
+
+#How to run
+# modify playbook to specify correct instance ids
+# ansible-playbook 3_start_ec2.yaml

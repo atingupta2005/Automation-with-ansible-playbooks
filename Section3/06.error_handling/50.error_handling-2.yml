@@ -1,0 +1,14 @@
+---
+  - hosts: localhost
+    gather_facts: false
+    become: yes
+    tasks:
+      - name: starting nginx
+        service:
+          name: nginx
+          state: started
+        ignore_errors: yes
+      - name: starting httpd
+        service:
+          name: httpd
+          state: started

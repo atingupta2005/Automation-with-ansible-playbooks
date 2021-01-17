@@ -1,0 +1,5 @@
+image: nginx
+port: 80
+servicetype: LoadBalancer
+replicas: 0
+name: currency-exchange

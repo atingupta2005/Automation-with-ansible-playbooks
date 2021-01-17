@@ -1,0 +1,17 @@
+---
+ - name: This play is used to stop ec2 instance
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: stopping ec2 instance
+     ec2:
+      instance_ids: i-05634dbf344147db7
+      region: us-east-2
+      state: stopped
+      wait: yes
+
+
+#How to run
+# modify playbook to specify correct instance ids and region
+# ansible-playbook 4_stop_ec2.yml
