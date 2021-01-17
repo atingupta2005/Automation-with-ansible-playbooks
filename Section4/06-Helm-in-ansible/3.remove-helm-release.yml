@@ -7,14 +7,15 @@
     - name: Deploy latest version of Prometheus chart inside monitoring namespace (and create it)
       community.kubernetes.helm:
         name: test
-        release_namespace: monitoring
+        release_namespace: atin-monitoring
         state: absent
         wait: true
 
 # How to run
+# Change the value of release_namespace
 # ansible-playbook 3.remove-helm-release.yml
 # kubectl get ns
-# kubectl get pods --namespace=monitoring
+# kubectl get pods --namespace=atin-monitoring
 # helm repo list
-# helm helm list
+# helm list -n atin-monitoring
 # helm history test<>

@@ -8,13 +8,14 @@
       community.kubernetes.helm:
         name: test
         chart_ref: /tmp/helm_repo/stable/grafana
-        release_namespace: monitoring
+        release_namespace: atin-monitoring
         state: upgraded
 
 
 # How to run
+# Change the value of release_namespace
 # ansible-playbook 4-upgrade-helm-release.yml
 # kubectl get ns
-# kubectl get pods --namespace=monitoring
-# helm helm list
+# kubectl get pods --namespace=atin-monitoring
+# helm list -n atin-monitoring
 # helm history test<>
