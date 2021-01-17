@@ -8,7 +8,7 @@
       community.kubernetes.k8s:
         api_version: v1
         kind: Namespace
-        name: atintesting
+        name: "{{nsname}}"
         state: present
 
     - name: Remove an existing Service object
@@ -16,9 +16,9 @@
         state: absent
         api_version: v1
         kind: Service
-        namespace: atintesting
+        namespace: "{{nsname}}"
         name: web
 
 # How to run:
-# ansible-playbook 4.Remove-service-with-Ansible.yml
-# sudo kubectl get service
+# ansible-playbook 4.Remove-service-with-Ansible.yml -e "nsname=atintesting2"
+# sudo kubectl get service --all-namespaces
