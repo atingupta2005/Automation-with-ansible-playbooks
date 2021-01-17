@@ -21,7 +21,7 @@
      state: latest
 ```
 
- - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
+ - nano install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
 
 ```
 ---
@@ -58,7 +58,7 @@
  set_java: jre-1.8.0-openjdk
 ```
 
- - vi install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
+ - nano install-and-configure-tomcat-java.yml    #Its the main playbook which will use roles
 
 ```
 ---
@@ -155,4 +155,3 @@ cp server.xml.j2 roles/xyz_tomcat/templates
 ### Run the playbook
  - ansible-playbook install-and-configure-tomcat-java.yml
  - curl localhost:8090
- 
