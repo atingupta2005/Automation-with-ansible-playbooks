@@ -51,7 +51,7 @@
     path: /usr/lib/jvm/{{set_java}}/bin/java
 ```
 
- - nano vars/main.yml
+ - nano roles/xyz_java/vars/main.yml
 
 ```
  req_java: java-1.8.0-openjdk
