@@ -8,7 +8,7 @@
       community.kubernetes.helm:
         name: test
         chart_ref: stable/prometheus
-        release_namespace: atin-monitoring
+        release_namespace: atin-monitoring-prometheus
         state: present
         create_namespace: true
 
@@ -16,7 +16,8 @@
 # Change the value of release_namespace
 # ansible-playbook 1.helm.yml
 # kubectl get ns
-# kubectl get pods --namespace=atin-monitoring
+# kubectl get pods --namespace=atin-monitoring-prometheus
 # helm repo list
-# helm list -n atin-monitoring
-# helm history test<>
+# helm list -n atin-monitoring-prometheus
+# helm history test  -n atin-monitoring-prometheus
+# kubectl delete ns atin-monitoring-prometheus

@@ -18,4 +18,4 @@
 # kubectl get pods --namespace=atin-monitoring
 # helm repo list
 # helm list -n atin-monitoring
-# helm history test<>
+# helm history test -n atin-monitoring

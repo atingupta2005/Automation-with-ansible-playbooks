@@ -10,6 +10,7 @@
         chart_ref: /tmp/helm_repo/stable/grafana
         release_namespace: atin-monitoring
         state: present
+        create_namespace: true
 
 
 # How to run
@@ -19,4 +20,4 @@
 # kubectl get pods --namespace=atin-monitoring
 # helm repo list
 # helm list -n atin-monitoring
-# helm history test<>
+# helm history test -n atin-monitoring
