@@ -17,8 +17,8 @@
         api_version: v1
         kind: Service
         namespace: "{{nsname}}"
-        name: web
+        name: "{{servicename}}"
 
 # How to run:
-# ansible-playbook 4.Remove-service-with-Ansible.yml -e "nsname=atintesting2"
+# ansible-playbook 4.Remove-service-with-Ansible.yml -e "nsname=atintesting2 servicename=web"
 # sudo kubectl get service --all-namespaces
