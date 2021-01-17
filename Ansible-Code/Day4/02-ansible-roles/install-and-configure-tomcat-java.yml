@@ -1,9 +1,0 @@
----
- - name: using roles
-   hosts: all
-   gather_facts: false
-   become: yes
-   roles:
-    - update_repos
-    - xyz_java
-    - xyz_tomcat
