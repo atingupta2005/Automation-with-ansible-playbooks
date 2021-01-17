@@ -102,7 +102,6 @@
         1. Backup a file if template needs to overwrite it
         1. Template multiple files with a loop
         1. Capture template module output
-1.
 1. AWS Provisioning Using Ansible
     1. Github link for playbooks
     1. Ansible Environment setup for AWS Provisioning
