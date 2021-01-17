@@ -160,4 +160,4 @@ cp server.xml.j2 roles/xyz_tomcat/templates
 ### Creating Custom Ansible Roles
  - Do you need a role, but you can’t find it in Ansible Galaxy? Follow our guide to creating your own.
 
-   -  [Creating Custom Ansible Roles] (https://azurecitadel.com/automation/packeransible/lab5/)
+[Creating Custom Ansible Roles](https://azurecitadel.com/automation/packeransible/lab5/)
