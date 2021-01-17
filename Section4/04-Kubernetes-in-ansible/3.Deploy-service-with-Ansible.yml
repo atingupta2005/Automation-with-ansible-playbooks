@@ -36,4 +36,4 @@
 
 # How to run:
 # ansible-playbook 3.Deploy-service-with-Ansible.yml -e "nsname=atintesting"
-# sudo kubectl get service
+# sudo kubectl get service --all-namespaces
